@@ -2,6 +2,7 @@
   "Async: whilst",
   "Async: map",
   "Async: waterfall",
-  "Promises: foobar",
+  "Promises: fetch JSON",
+  "Promises: do some work",
   "Streams: foobar"
 ]

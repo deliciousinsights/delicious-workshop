@@ -2,10 +2,11 @@
   "title": "Delicious Workshop - Exercices de formation Node.js",
   "subtitle" : "\u001b[23mSélectionnez un exercice et tapez \u001b[3mEnter\u001b[23m pour démarrer",
   "exercise": {
-    "Async: whilst":    "Async     - Whilst",
-    "Async: map":       "Async     - Map",
-    "Async: waterfall": "Async     - Waterfall",
-    "Promises: foobar": "Promesses - Foobar",
-    "Streams: foobar":  "Flux      - Foobar"
+    "Async: whilst":          "Async     - Whilst",
+    "Async: map":             "Async     - Map",
+    "Async: waterfall":       "Async     - Waterfall",
+    "Promises: fetch JSON":   "Promesses - Récupérer du JSON",
+    "Promises: do some work": "Promesses - Bosser pour de bon",
+    "Streams: foobar":        "Flux      - Foobar"
   }
 }

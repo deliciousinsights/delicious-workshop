@@ -5,7 +5,8 @@
   "description": "Select exercises for our Node.js training.",
   "author": "",
   "contributors": [
-    "Bulkan Evcimen <bulkan@gmail.com>"
+    "Bulkan Evcimen <bulkan@gmail.com>",
+    "Steven Kane <kanesteven@gmail.com>"
   ],
   "repository": {
     "type": "git",
@@ -14,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
+    "node-uuid": "^1.4.3",
     "workshopper": "^2.3.1",
     "workshopper-exercise": "^2.3.0"
   },
