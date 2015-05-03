@@ -1,16 +1,17 @@
-## Challenge
+## Défi
 
-Write a program that will receive a single command line argument to a URL.
+Écrivez un programme qui reçoit une URL en argument de ligne de commande.
 
-Using `async.whilst` and `http.get`, send GET requests to this URL until
-the response body contains the string `"meerkat"`.
+Utilisez `async.whilst()` et `http.get()` pour envoyer des requêtes GET à
+cette URL jusqu’à ce que le corps de réponse contienne `"meerkat"`.
 
-`console.log` the amount of GET requests needed to retrieve the "meerkat" string.
+Faites un `console.log()` du nombre de requêtes GET qu’il vous aura fallu pour
+obtenir le texte "meerkat".
 
-## Hints
+## Conseils
 
-`String.prototype.trim()` is your friend.
+`String.prototype.trim()` est votre ami.
 
-You can get documentation on `async.whilst()` here:
+Vous trouverez la documentation de `async.whilst()` ici :
 
   https://github.com/caolan/async#whilst

@@ -1,17 +1,19 @@
-With `async.each`, the results of the asynchronous function are **lost**.
+Avec `async.each()`, les résultats des fonctions asynchrones sont **perdus**.
 
-This is where `async.map` comes in. It does the same thing as `async.each`,
-by calling an asynchronous iterator function on an array, but **collects
-the results** of the asynchronous iterator function and passes them to the
-results callback.
+C’est pourquoi on utilise souvent `async.map()`.  Elle fait la même chose
+que `async.each()`, mais lorsqu’elle itère de façon asynchrone sur le tableau,
+elle **récupère les résultats** et les passe à terme à la fonction de rappel
+qui leur est dédiée.
 
-The results are in an array that is in the **same order** as the original array.
+Ces résultats sont présentés dans un tableau qui **respecte l’ordre** du tableau
+de valeurs d’origine.
 
-For example, the example in the EACH problem can be written as:
+Par exemple, le code de l’exercice **each** peut être écrit comme suit :
 
 ```js
 var http = require('http')
   , async = require('async');
+
 async.map(['cat', 'meerkat', 'penguin'], function(item, done){
   var opts = {
     hostname: 'http://httpbin.org',
@@ -32,14 +34,15 @@ async.map(['cat', 'meerkat', 'penguin'], function(item, done){
 },
 function(err, results){
   if (err) return console.log(err);
-  // results is an array of the response bodies in the same order
+  // `results`est un tableau des corps de réponse, dans le bon ordre
 });
 ```
 
-## Challenge
+## Défi
 
-Write a program that will receive two command-line arguments to two URLs.
+Écrivez un programme avec deux URLs en arguments de ligne de commande.
 
-Using `http.get` create two GET requests to these URLs.
+Utilisez `http.get()` pour créer deux requêtes GET sur ces URLs.
 
-You will need to use `async.map`, then `console.log` the results array.
+Utilisez `async.map()` et faites à terme un `console.log()` du tableau
+des résultats.

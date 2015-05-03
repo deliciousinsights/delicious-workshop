@@ -1,76 +1,80 @@
-In Node.js and browsers there are three ways to do **asynchronous** JavaScript.
+Dans Node.js comme dans les navigateurs, il y a trois façons de faire du
+JavaScript **asynchrone**.
 
-The first way leads to what we call **Callback Hell**. Callback Hell
-can be minimized by following the tips at:
+La première approche nous emmène tout droit dans l’**Enfer des Callbacks**.
+Il est possible de mitiger ce phénomène en suivant les conseils listés ici :
 
-  http://callbackhell.com.
+  http://callbackhell.com
 
-Another method is to use a `Promise` package. Using promises will simplify your
-code but it also adds another layer of abstraction.
+La deuxième méthode consiste à utiliser une implémentation des *Promesses*.
+Utiliser des promesses peut simplifier votre code mais introduit un niveau
+d’abstraction supplémentaire.
 
-The last method is by using the `async` package by Caolan McMahon.  With **async**
-we are still writing callbacks but without falling into the callback hell or
-adding another layer of abstraction with promises.
+Finalement, vous pouvez utiliser le module `async` de Caolan McMahon. Avec
+**async**, vous écrivez toujours des fonctions de rappel, mais sans tomber
+dans l’enfer des callbacks ni ajouter une nouvelle couche d’abstraction.
 
-More often than not you will need to do multiple asynchronous calls one after
-the other with each call dependent on the result of previous asynchronous call.
-We can do this with the help of `async.waterfall`.
+Il arrive bien souvent que vous ayez besoin d’exécuter de multiples appels
+asynchrones l’un après l’autre, en passant à chaque appel le résultat du
+précédent.  C’est facile à réaliser avec l’aide de `async.waterfall()`.
 
-For example the following code will:
+Par exemple, le code qui suit fait deux traitements consécutifs :
 
-1) do a GET request to `http://localhost:3131` in the first waterfall function.
-2) The response body is passed as an argument to the next waterfall function via
-   the callback. The second function in the waterfall accepts the body as a
-   parameter and `JSON.parse`'s it to get to the `port` property then it does
-   another GET request.
+1) Une requête GET à `http://localhost:3131` dans la première fonction de la
+   cascade ;
+2) Un `JSON.parse` sur le corps de réponse obtenu, passé par la première fonction
+   de la cascade via sa propre fonction de rappel, et transmis en premier argument
+   à la deuxième fonction de la cascade ; on en extrait alors la propriété `port`
+   et on fait une nouvelle requête GET avec.
 
 ```js
 var http = require('http')
   , async = require('async');
 
 async.waterfall([
+  // Première fonction de cascade ; `cb` est le rappel de continuation
+  // passé par `async`, à appeler quand on aura terminé cette étape.
   function(cb){
-    var body = '';
-    // response is JSON encoded object like the following {port: 3132}
-    http.get("http://localhost:3131", function(res){
-      res.on('data', function(chunk){
-        body += chunk.toString();
-      });
-      res.on('end', function(){
-        cb(null, body);
-      });
-    }).on('error', function(err) {
-      cb(err);
-    });
+    // La réponse sera un encodage JSON de l’objet `{port: 3132}`
+    fetchURL("http://localhost:3131", cb);
   },
 
+  // Deuxième fonction de cascade : la valeur passée par la première à
+  // son `cb` est transmise en 1er argument, et ce nouveau `cb` est
+  // toujours une fonction de continuation passée par `async`.
   function(body, cb){
     var port = JSON.parse(body).port;
-    var body = '';
-    http.get("http://localhost:" + port, function(res){
-      res.on('data', function(chunk){
-        body += chunk.toString();
-      });
-      res.on('end', function(){
-        cb(null, body);
-      });
-    }).on('error', function(err) {
-      cb(err);
-    });
+    fetchURL("http://localhost:" + port, cb);
   }
-], function(err, result){
+],
+// Gestionnaire d’erreur / de résultat global à la cascade.
+function(err, result){
   if (err) return console.error(err);
   console.log(result);
 });
+
+function fetchURL(url, cb) {
+  var body = '';
+  http.get(url, function(res){
+    res.on('data', function(chunk){
+      body += chunk.toString();
+    });
+    res.on('end', function(){
+      cb(null, body);
+    });
+  }).on('error', function(err) {
+    cb(err);
+  });
+}
 ```
 
-## Challenge
+## Défi
 
-In this problem you will need to write a program that first reads the contents
-of a file.
+Pour cet exercice vous devrez écrire un programme qui lise le contenu
+d’un fichier, de façon asynchrone évidemment.
 
-The path will be provided as the first command-line argument to your program
-(i.e. `process.argv[2]`).
+Le chemin de ce fichier vous sera fourni en premier argument de la ligne
+de commande de votre programme (`process.argv[2]`).
 
-The file will contain a single URL. Using `http.get`, create a GET request to
-this URL and `console.log` the response body.
+Le fichier contient une unique URL.  Utilisez `http.get` pour créer une
+requête GET vers cette URL et faire un `console.log` sur le corps de réponse.

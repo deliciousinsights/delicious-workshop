@@ -6,5 +6,5 @@ const workshopper = require('workshopper');
 workshopper({
   name: "delicious-workshop",
   appDir: __dirname,
-  languages: ['fr', 'en']
+  languages: ['fr']
 });

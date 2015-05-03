@@ -1,36 +1,36 @@
-# Let's do something, you know, from "real life"
+# Si on faisait un truc qui ressemble à, tu sais, la « vraie vie »…
 
-**Let's fetch JSON over HTTP… YAY!**
+## Allez on va choper du JSON via HTTP…  OUAIS !
 
-Fetching JSON data from remote machines via AJAX is commonplace
-on both the server and client.  Promises also happen to map to AJAX
-particularly well.  Any AJAX request may either succeed or fail,
-never both.  Promises may fulfill or reject, never both.
+Récupérer des données JSON depuis des machines distantes via AJAX,
+c’est très courant, aussi bien côté serveur que côté client.  Les promesses
+s’appliquent particulièrement bien à AJAX.  Une requête AJAX peut réussir ou
+échouer, mais jamais les deux.  Les promesses peuvent s’accomplir ou rejeter,
+mais jamais les deux.
 
-So wow.  Much similarity.  Very promising…
+Waouh.  Si proches.  Très prometteur…
 
-Let's use a new module called `q-io` to take advantage of its `http.read`
-method which returns a promise for the value of a successful HTTP response
-body.
+Nous allons utiliser un module appelé `q-io` pour tirer parti de sa
+méthode `http.read()`, qui renvoie une promesse pour le corps de réponse
+d’une requête HTTP réussie.
 
-Install by typing:
+Installez-le en tapant :
 
 ```sh
 $ npm install q-io --save
 ```
 
-## Task
+## Tâche
 
-Fetch JSON from *http://localhost:1337* and `console.log` it.
+Récupérez du JSON depuis `http://localhost:1337/` et passez-le à `console.log`.
 
-There are several things you will want to know:
+Il y a deux petites choses que vous devez savoir :
 
-1. `q-io`'s `http` module has a `read` method which returns a promise for the
-   content of a successful (status 200) HTTP request.
-2. Parse the returned JSON and `console.log` it for much win.
+1. Le module `http` de `q-io` a une méthode `read()` qui renvoie une promesse
+    pour le corps de réponse d’une requête HTTP réussie (code 200).
+2. Parsez le JSON récupéré et affichez-le via `console.log` pour déchirer.
 
-This challenge is a bit tricky but the implementation is relatively
-straightforward.  If you get stuck, refer to the `q-io` documentation for
-clarification:
+Ce défi peut sembler avancé, mais l’implémentation est plutôt simple.  Si vous êtes
+bloqué-e, jetez un œil à la documentation de `q-io` pour plus d’informations :
 
   https://github.com/kriskowal/q-io
