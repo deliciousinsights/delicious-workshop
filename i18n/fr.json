@@ -7,6 +7,9 @@
     "Async: waterfall":       "Async     - Waterfall",
     "Promises: fetch JSON":   "Promesses - Récupérer du JSON",
     "Promises: do some work": "Promesses - Bosser pour de bon",
-    "Streams: foobar":        "Flux      - Foobar"
+    "Streams: transform":     "Flux      - Transformation",
+    "Streams: HTML stream":   "Flux      - Flux HTML",
+    "Streams: crypt":         "Flux      - Cryptographie",
+    "Streams: secretz":       "Flux      - Secretz !"
   }
 }

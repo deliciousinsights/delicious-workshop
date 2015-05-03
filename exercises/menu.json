@@ -4,5 +4,8 @@
   "Async: waterfall",
   "Promises: fetch JSON",
   "Promises: do some work",
-  "Streams: foobar"
+  "Streams: transform",
+  "Streams: HTML stream",
+  "Streams: crypt",
+  "Streams: secretz"
 ]

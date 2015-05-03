@@ -3,9 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "description": "Select exercises for our Node.js training.",
-  "author": "",
+  "author": "Christophe Porteneuve <christophe@delicious-insights.com>",
   "contributors": [
     "Bulkan Evcimen <bulkan@gmail.com>",
+    "James “substack” Halliday <substack@gmail.com>",
     "Steven Kane <kanesteven@gmail.com>"
   ],
   "repository": {
@@ -16,6 +17,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "node-uuid": "^1.4.3",
+    "through": "^2.3.7",
     "workshopper": "^2.3.1",
     "workshopper-exercise": "^2.3.0"
   },
