@@ -1,0 +1,4 @@
+- Pour ré-afficher ces instructions, fais : `{appname} print`
+- Pour exécuter ton programme dans un environnement de test, fais : `{appname} run program.js`
+- Pour vérifier que ton programme résoud l’exercice, fais : `{appname} verify program.js`
+- Pour de l’aide sur les commandes, fais : `{appname} help`

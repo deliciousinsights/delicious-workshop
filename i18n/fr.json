@@ -1,0 +1,39 @@
+{
+  "subtitle": "\u001b[23mSélectionne un défi et tape \u001b[3mEntrée\u001b[23m pour démarrer",
+  "error": {
+    "exercise": {
+      "none_active": "Aucun exercice en cours.  Choisis-en un dans le menu."
+    }
+  },
+  "solution": {
+    "fail": {
+      "message": "Ta solution pour {{{currentExercise.name}}} ne fonctionne pas. Réessaie !\n"
+    },
+    "pass": {
+      "message": "Ta solution pour {{{currentExercise.name}}} fonctionne !"
+    },
+    "notes": {
+      "compare": "Voici la solution officielle, si tu veux comparer :\n"
+    }
+  },
+  "ui": {
+    "return": "Tape '{{appName}}' pour afficher le menu.\n"
+  },
+  "progress": {
+    "finished": "Tu as terminé tous les défis ! Bravo !\n",
+    "remaining": {
+      "one": "Il te reste un défi.",
+      "other": "Il te reste {{count}} défis."
+    },
+    "state": "Défi {{count}} sur {{amount}}"
+  },
+  "credits": {
+    "title": "{{appName}} t’est proposé par les codeurs dévoués suivants :",
+    "name": "Nom",
+    "user": "Compte GitHub"
+  },
+  "update": {
+    "latest_version": "{{name}}**@{{version}}** est déjà à la dernière version.\n\n**Félicitations !**",
+    "now": "{{name}}_@{{current}}_ n’est pas à jour : passage à la version **{{latest}}** avec \n\n```bash\n{{cmd}}\n```\n"
+  }
+}
