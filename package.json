@@ -1,6 +1,5 @@
 {
   "name": "delicious-workshop",
-  "private": true,
   "version": "1.0.0",
   "description": "Select exercises for our Node.js training.",
   "author": "Christophe Porteneuve <christophe@delicious-insights.com>",

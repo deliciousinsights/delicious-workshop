@@ -7,7 +7,7 @@ This is a curated selection of exercises from various workshops that we use in o
 ## Installation
 
 1. Install [Node.js](http://nodejs.org/)
-2. Run `sudo npm install -g https://github.com/deliciousinsights/delicious-workshop/archive/master.tar.gz`
+2. Run `sudo npm install -g delicious-workshop`
 3. Run `delicious-workshop`
 
 ## Acknowledgements
