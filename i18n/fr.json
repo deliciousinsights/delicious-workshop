@@ -5,6 +5,12 @@
       "none_active": "Aucun exercice en cours.  Choisis-en un dans le menu."
     }
   },
+  "exercise": {
+    "Streams: Transform": "Flux - Transformation",
+    "Streams: HTML stream": "Flux - Flux HTML",
+    "Streams: Crypt": "Flux - Cryptographie",
+    "Streams: Secretz": "Flux - Secretz !"
+  },
   "solution": {
     "fail": {
       "message": "Ta solution pour {{{currentExercise.name}}} ne fonctionne pas. Réessaie !\n"

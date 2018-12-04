@@ -1,8 +1,8 @@
-var exercise = require('workshopper-exercise')()
-var filecheck = require('workshopper-exercise/filecheck')
-var execute = require('workshopper-exercise/execute')
-var comparestdout = require('workshopper-exercise/comparestdout')
-var through = require('through')
+let exercise = require('workshopper-exercise')()
+const filecheck = require('workshopper-exercise/filecheck')
+const execute = require('workshopper-exercise/execute')
+const comparestdout = require('workshopper-exercise/comparestdout')
+const through = require('through')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
@@ -10,19 +10,24 @@ exercise = filecheck(exercise)
 // execute the solution and submission in parallel with spawn()
 exercise = execute(exercise)
 
+const COUNT = 10
+
 // set up the data file to be passed to the submission
 exercise.addProcessor(function(mode, callback) {
-  var aliens = require('./aliens.json')
-  var tr = through()
+  const characters = require('./cite-de-la-peur.json')
+    .sort(() => Math.random() - 0.5)
+    .slice(0, COUNT)
+  const tr = through()
 
-  var count = 0
-  var iv = setInterval(function() {
-    if (++count === 10) {
+  let count = 0
+  const iv = setInterval(() => {
+    if (++count === COUNT) {
       clearInterval(iv)
       return tr.queue(null)
     }
-    var alien = aliens[Math.floor(Math.random() * aliens.length)]
-    tr.queue(alien.toLowerCase() + '\n')
+
+    const character = characters.shift()
+    tr.queue(character.toLowerCase() + '\n')
   }, 50)
 
   tr.pipe(this.submissionChild.stdin)
