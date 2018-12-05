@@ -5,19 +5,20 @@ majuscules le HTML à l’intérieur de tout élément doté d’une classe CSS 
 Tu vas utiliser le module `trumpet` pour réussir cette aventure.
 
 Avec `trumpet`, tu peux créer des flux de transformation attachés à des
-sélecteurs CSS :
+sélecteurs CSS. Voici un exemple qui met en place de type de point d’ancrage
+depuis le HTML lu dans un fichier :
 
 ```js
 const fs = require('fs')
-fs.createReadStream('input.html').pipe(tr)
-
 const trumpet = require('trumpet')
+
 const tr = trumpet()
+fs.createReadStream('input.html').pipe(tr)
 
 const hook = tr.select('.beep').createStream()
 ```
 
-À présent, `stream` va émettre les contenus HTML de tous les éléments dotés
+À présent, `stream` va émettre le contenu HTML du premier élément doté
 d’au moins la classe CSS `"beep"`, et ce que tu y écriras en retour deviendra
 le HTML de remplacement (à défaut, aucune transformation ne sera appliquée).
 
