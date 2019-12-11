@@ -9,9 +9,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "tar": "^4.4.8",
+    "tar": "^5.0.5",
     "trumpet": "^1.7.2",
-    "workshopper-adventure": "^6.0.4",
+    "workshopper-adventure": "^6.1.0",
     "workshopper-exercise": "^3.0.1"
   },
   "bin": "./delicious-workshop.js"
