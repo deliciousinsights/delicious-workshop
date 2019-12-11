@@ -6,9 +6,9 @@ const tr = trumpet()
 process.stdin.pipe(tr).pipe(process.stdout)
 
 // Variante « première occurrence seulement » :
-
-const hook = tr.select('.loud').createStream()
-hook.pipe(upperCaser()).pipe(hook)
+//
+// const hook = tr.select('.loud').createStream()
+// hook.pipe(upperCaser()).pipe(hook)
 
 // Variante « toutes les occurrences » :
 
@@ -19,8 +19,10 @@ tr.selectAll('.loud', (element) => {
 
 // L’utilitaire de création de flux de transfo majuscule :
 
-const upperCaser = () => new Transform({
-  transform(buf, enc, cb) {
-    cb(null, buf.toString().toUpperCase())
-  },
-})
+function upperCaser() {
+  return new Transform({
+    transform(buf, enc, cb) {
+      cb(null, buf.toString().toUpperCase())
+    },
+  })
+}
