@@ -1,6 +1,6 @@
 {
   "name": "delicious-workshop",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Select exercises for Delicious Insights’ Node.js training classes",
   "author": "Christophe Porteneuve <christophe@delicious-insights.com> (https://delicious-insights.com/)",
   "repository": {
