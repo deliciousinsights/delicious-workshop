@@ -1,9 +1,11 @@
-const { createDecipher, createHash } = require('crypto')
+const { createDecipheriv, createHash } = require('crypto')
 const { list: tarList } = require('tar')
 const { Transform } = require('stream')
 
+const [algorithm, key, iv] = process.argv.slice(2)
+
 process.stdin
-  .pipe(createDecipher(process.argv[2], process.argv[3]))
+  .pipe(createDecipheriv(algorithm, key, iv))
   .pipe(tarList())
   .on('entry', (entry) => {
     if (entry.type !== 'File') {

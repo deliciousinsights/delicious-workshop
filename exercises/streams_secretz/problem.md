@@ -6,8 +6,9 @@ contenu, suivi d’une unique espace et du nom de fichier, puis d’un retour
 chariot.
 
 Tu recevras sur la ligne de commande le nom de l’algorithme de chiffrage
-dans `process.argv[2]`, et la _passphrase_ employée dans `process.argv[3]`.
-Tu pourras passer ces arguments directement à `crypto.createDecipher()`.
+dans `process.argv[2]`, la _passphrase_ employée dans `process.argv[3]`
+et le _initialization vector_ dans `process.argv[4]`.
+Tu pourras passer ces arguments directement à `crypto.createDecipheriv()`.
 
 L'API noyau zlib de Node.js te fournira `zlib.createGunzip()` pour décompresser
 le flux obtenu par le déchiffrage, même si tu verras qu’un autre moyen existe en
